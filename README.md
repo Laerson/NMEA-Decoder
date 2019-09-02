@@ -23,6 +23,6 @@ Esse código tem várias informações, como a latitude, longitude, altitude, qu
 
 A aplicação vai ser capaz de:
 
-1- Decodificar um sinal NMEA pra um formato legível
-2- Codificar dados de localização pra o formato NMEA
-3- Verificar se o sinal é válido, usando a checksum
+1. Decodificar um sinal NMEA pra um formato legível
+2. Codificar dados de localização pra o formato NMEA
+3. Verificar se o sinal é válido, usando a checksum
