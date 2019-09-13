@@ -170,6 +170,12 @@ void gga(char sentence[]) {
 
     //Units of altitude.
     //erro se não for M
+    sentenceCounter++;
+    i = 0;
+    while (sentenceCounter < strlen(sentence) && sentence[sentenceCounter] != ',')
+    {
+        unitOfAltitude = sentence[sentenceCounter];
+    }
 
     //Geoidal separation
     sentenceCounter++;
@@ -183,6 +189,12 @@ void gga(char sentence[]) {
 
     //units of geoidal sep
     //erro se não for M
+    sentenceCounter++;
+    i = 0;
+    while (sentenceCounter < strlen(sentence) && sentence[sentenceCounter] != ',')
+    {
+        unitOfGeoidalSeparation = sentence[sentenceCounter];
+    }
 
     //dgpsAGE
     sentenceCounter++;
