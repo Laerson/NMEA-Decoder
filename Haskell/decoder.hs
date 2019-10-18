@@ -16,15 +16,6 @@ main = do
 
 -------------------------------------------------------------
 
---Separa a parte do checksum do resto da sentença
-splitCheckSum :: String -> [String]
-splitCheckSum [] = [""]
-splitCheckSum (c:cs)
-    | c == '*' = "" : rest
-    | otherwise = (c : head rest) : tail rest
-    where
-        rest = splitCheckSum cs
-
 --separa a string por virgulas
 split :: String -> [String]
 split [] = [""]
@@ -82,3 +73,8 @@ idParser sentence = head (tail(tail(tail(tail(tail(tail(tail(tail(tail(tail(tail
 checksumParser :: String -> String
 checksumParser sentence = head (tail(tail(tail(tail(tail(tail(tail(tail(tail(tail(tail(tail(tail((tail(tail(split sentence)))))))))))))))))
 
+--------------------------------------------------------------
+
+timeDecodeAux :: String -> Int -> String
+timeDecodeAux [] n = ""
+timeDecodeAux
