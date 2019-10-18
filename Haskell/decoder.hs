@@ -1,3 +1,17 @@
+import Data.Char
+import System.IO  
+
+
+main = do
+  putStrLn "NMEA Sentence decode"
+  putStrLn "Do you want to:"
+  putStrLn "1 - Decode a NMEA sentence"
+  putStrLn "2 - Create a NMEA sentence(Not implemented yet)"
+
+  option <- getLine
+
+
+
 --checa se a sentenca começa com "$GPGGA"
 
 -------------------------------------------------------------
