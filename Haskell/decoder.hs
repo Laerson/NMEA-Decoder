@@ -1,14 +1,14 @@
-import Data.Char
-import System.IO  
+--import Data.Char
+--import System.IO  
 
 
-main = do
-  putStrLn "NMEA Sentence decode"
-  putStrLn "Do you want to:"
-  putStrLn "1 - Decode a NMEA sentence"
-  putStrLn "2 - Create a NMEA sentence(Not implemented yet)"
+--main = do
+--  putStrLn "NMEA Sentence decode"
+--  putStrLn "Do you want to:"
+--  putStrLn "1 - Decode a NMEA sentence"
+--  putStrLn "2 - Create a NMEA sentence(Not implemented yet)"
 
-  option <- getLine
+--  option <- getLine
 
 
 
@@ -75,6 +75,12 @@ checksumParser sentence = head (tail(tail(tail(tail(tail(tail(tail(tail(tail(tai
 
 --------------------------------------------------------------
 
-timeDecodeAux :: String -> Int -> String
-timeDecodeAux [] n = ""
-timeDecodeAux
+timeDecode :: String -> String
+timeDecode [] = ""
+timeDecode (rawTime)
+      |length(rawTime) == 2 = (rawTime) ++ "H"
+      |length(rawTime) == 4 = timeDecode([head(rawTime)] ++ [head(tail(rawTime))]) ++ " : " ++ tail(tail(rawTime)) ++ "M"
+      |length(rawTime) == 6 = timeDecode([head(rawTime)] ++ [head(tail(rawTime))] ++ [head(tail(tail(rawTime)))] ++ [head(tail(tail(tail(rawTime))))]) ++ " : " ++ tail(tail(tail(tail(rawTime)))) ++ "S"
+      |length(rawTime) > 6 = timeDecode([head(rawTime)] ++ [head(tail(rawTime))] ++ [head(tail(tail(rawTime)))] ++ [head(tail(tail(tail(rawTime))))]) ++ " : " ++ [head(tail(tail(tail(tail(rawTime)))))] ++ [head(tail(tail(tail(tail(tail(rawTime))))))] ++ "," ++ tail(tail(tail(tail(tail(tail(rawTime)))))) ++ "S"
+      |otherwise "invalid time format"
+      
